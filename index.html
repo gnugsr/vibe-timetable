@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대학생 시간표</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="custom-cursor">🥐</div>
+    <div class="container">
+        <header>
+            <h1>📚 대학생 시간표</h1>
+            <div class="student-info">
+                <p><strong>이름:</strong> 구세린</p>
+                <p><strong>전공:</strong> 기계융합공학과</p>
+            </div>
+        </header>
+
+        <main>
+            <div class="schedule-wrapper">
+                <!-- 시간표 -->
+                <section class="schedule-section">
+                    <h2>시간표</h2>
+                    <table class="timetable">
+                        <thead>
+                            <tr>
+                                <th>교시</th>
+                                <th>시간</th>
+                                <th>월</th>
+                                <th>화</th>
+                                <th>수</th>
+                                <th>목</th>
+                                <th>금</th>
+                            </tr>
+                        </thead>
+                        <tbody id="timetableBody">
+                            <tr>
+                                <td>1교시</td>
+                                <td>09:00~10:00</td>
+                                <td class="subject" data-day="0" data-period="0"></td>
+                                <td class="subject" data-day="1" data-period="0"></td>
+                                <td class="subject" data-day="2" data-period="0"></td>
+                                <td class="subject" data-day="3" data-period="0"></td>
+                                <td class="subject" data-day="4" data-period="0"></td>
+                            </tr>
+                            <tr>
+                                <td>2교시</td>
+                                <td>10:00~11:00</td>
+                                <td class="subject" data-day="0" data-period="1"></td>
+                                <td class="subject" data-day="1" data-period="1"></td>
+                                <td class="subject" data-day="2" data-period="1"></td>
+                                <td class="subject" data-day="3" data-period="1"></td>
+                                <td class="subject" data-day="4" data-period="1"></td>
+                            </tr>
+                            <tr>
+                                <td>3교시</td>
+                                <td>11:00~12:00</td>
+                                <td class="subject" data-day="0" data-period="2"></td>
+                                <td class="subject" data-day="1" data-period="2"></td>
+                                <td class="subject" data-day="2" data-period="2"></td>
+                                <td class="subject" data-day="3" data-period="2"></td>
+                                <td class="subject" data-day="4" data-period="2"></td>
+                            </tr>
+                            <tr>
+                                <td>4교시</td>
+                                <td>12:00~13:00</td>
+                                <td class="subject" data-day="0" data-period="3"></td>
+                                <td class="subject" data-day="1" data-period="3"></td>
+                                <td class="subject" data-day="2" data-period="3"></td>
+                                <td class="subject" data-day="3" data-period="3"></td>
+                                <td class="subject" data-day="4" data-period="3"></td>
+                            </tr>
+                            <tr>
+                                <td>5교시</td>
+                                <td>13:00~14:00</td>
+                                <td class="subject" data-day="0" data-period="4"></td>
+                                <td class="subject" data-day="1" data-period="4"></td>
+                                <td class="subject" data-day="2" data-period="4"></td>
+                                <td class="subject" data-day="3" data-period="4"></td>
+                                <td class="subject" data-day="4" data-period="4"></td>
+                            </tr>
+                            <tr>
+                                <td>6교시</td>
+                                <td>14:00~15:00</td>
+                                <td class="subject" data-day="0" data-period="5"></td>
+                                <td class="subject" data-day="1" data-period="5"></td>
+                                <td class="subject" data-day="2" data-period="5"></td>
+                                <td class="subject" data-day="3" data-period="5"></td>
+                                <td class="subject" data-day="4" data-period="5"></td>
+                            </tr>
+                            <tr>
+                                <td>7교시</td>
+                                <td>15:00~16:00</td>
+                                <td class="subject" data-day="0" data-period="6"></td>
+                                <td class="subject" data-day="1" data-period="6"></td>
+                                <td class="subject" data-day="2" data-period="6"></td>
+                                <td class="subject" data-day="3" data-period="6"></td>
+                                <td class="subject" data-day="4" data-period="6"></td>
+                            </tr>
+                            <tr>
+                                <td>8교시</td>
+                                <td>16:00~17:00</td>
+                                <td class="subject" data-day="0" data-period="7"></td>
+                                <td class="subject" data-day="1" data-period="7"></td>
+                                <td class="subject" data-day="2" data-period="7"></td>
+                                <td class="subject" data-day="3" data-period="7"></td>
+                                <td class="subject" data-day="4" data-period="7"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- 강의 입력 폼 -->
+                <section class="form-section">
+                    <h2>강의 추가</h2>
+                    <form id="scheduleForm">
+                        <div class="form-group">
+                            <label for="lectureDay">요일:</label>
+                            <select id="lectureDay" required>
+                                <option value="">선택</option>
+                                <option value="0">월</option>
+                                <option value="1">화</option>
+                                <option value="2">수</option>
+                                <option value="3">목</option>
+                                <option value="4">금</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lecturePeriod">교시:</label>
+                            <select id="lecturePeriod" required>
+                                <option value="">선택</option>
+                                <option value="0">1교시 (09:00~10:00)</option>
+                                <option value="1">2교시 (10:00~11:00)</option>
+                                <option value="2">3교시 (11:00~12:00)</option>
+                                <option value="3">4교시 (12:00~13:00)</option>
+                                <option value="4">5교시 (13:00~14:00)</option>
+                                <option value="5">6교시 (14:00~15:00)</option>
+                                <option value="6">7교시 (15:00~16:00)</option>
+                                <option value="7">8교시 (16:00~17:00)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lectureName">강의명:</label>
+                            <input type="text" id="lectureName" placeholder="예: 열역학" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lectureRoom">강의실:</label>
+                            <input type="text" id="lectureRoom" placeholder="예: 대학관 302호" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lectureTime">수업시간:</label>
+                            <input type="text" id="lectureTime" placeholder="예: 월/수 09:00~10:00" required>
+                        </div>
+
+                        <button type="submit" class="btn-add">강의 추가</button>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
